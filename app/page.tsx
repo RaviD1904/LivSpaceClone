@@ -1,113 +1,172 @@
-import Image from 'next/image'
+import React from "react";
+import { Button, Carousel } from "antd";
+import Link from "next/link";
+import Image from "next/image";
+import carousal_banner_01 from "../assets/home_page/carousal_1_image.jpeg";
+import carousal_banner_02 from "../assets/home_page/carousal_2_image.jpeg";
+import carousal_banner_03 from "../assets/home_page/carousal_3_image.jpg";
+// import carousal_banner_03 from "../assets/home_page/carousal_3_image.jpeg"
 
+// import { Card } from "antd";
+// const { Meta } = Card;
 export default function Home() {
+  function ChevronDownIcon(props: any) {
+    return (
+      <svg
+        {...props}
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="m6 9 6 6 6-6" />
+      </svg>
+    );
+  }
+
+  function HexagonIcon(props: any) {
+    return (
+      <svg
+        {...props}
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="2"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
+      </svg>
+    );
+  }
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 max-w-5xl w-full items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">app/page.tsx</code>
-        </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:h-auto lg:w-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div className="overflow-x-hidden">
+      {/* navigation bar */}
+      <div>
+        <nav className="fixed top-0 z-50 bg-white py-4 w-full">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex justify-between items-center">
+              <div className="flex items-center">
+                <HexagonIcon className="text-red-600 h-6 w-6" />
+                <span className="text-3xl font-bold tracking-tight text-gray-900 ml-3">
+                  LIVSPACE
+                </span>
+              </div>
+              <div className="hidden md:flex space-x-8">
+                <Link className="text-gray-500 hover:text-gray-900" href="#">
+                  Interiors
+                </Link>
+                <div className="relative">
+                  <Link
+                    className="text-gray-500 hover:text-gray-900 inline-flex items-center"
+                    href="#"
+                  >
+                    Design Ideas
+                    <ChevronDownIcon className="ml-2 h-5 w-5" />
+                  </Link>
+                  <div className="absolute hidden group-hover:block bg-white shadow-lg mt-2 rounded-md w-40" />
+                </div>
+                <div className="relative">
+                  <Link
+                    className="text-gray-500 hover:text-gray-900 inline-flex items-center"
+                    href="#"
+                  >
+                    Magazine
+                    <ChevronDownIcon className="ml-2 h-5 w-5" />
+                  </Link>
+                  <div className="absolute hidden group-hover:block bg-white shadow-lg mt-2 rounded-md w-40" />
+                </div>
+                <div className="relative">
+                  <Link
+                    className="text-gray-500 hover:text-gray-900 inline-flex items-center"
+                    href="#"
+                  >
+                    Cities
+                    <ChevronDownIcon className="ml-2 h-5 w-5" />
+                  </Link>
+                  <div className="absolute hidden group-hover:block bg-white shadow-lg mt-2 rounded-md w-40" />
+                </div>
+                <Link className="text-gray-500 hover:text-gray-900" href="#">
+                  Store Locator
+                </Link>
+                <div className="relative">
+                  <Link
+                    className="text-gray-500 hover:text-gray-900 inline-flex items-center"
+                    href="#"
+                  >
+                    More
+                    <ChevronDownIcon className="ml-2 h-5 w-5" />
+                  </Link>
+                  <div className="absolute hidden group-hover:block bg-white shadow-lg mt-2 rounded-md w-40" />
+                </div>
+              </div>
+            </div>
+            <div className="border-b-4 border-red-600 w-16 mt-3" />
+          </div>
+        </nav>
+      </div>
+      {/* navigation bar */}
+      {/* Courusal */}
+      <div className="mt-20">
+        <Carousel arrows>
+          <div className="relative">
+            <Image src={carousal_banner_01} alt="banner_01" />
+            <div className="w-full absolute right-1/2 left-1/2 bottom-14 -translate-x-2/4 -translate-y-2/4">
+              <h3 className="text-wrap text-center text-7xl text-white font-bold">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+              </h3>
+              <Button
+                className="absolute right-1/2 left-1/2 -translate-x-2/4 -translate-y-2/4"
+                shape="round"
+                size="large"
+                style={{
+                  backgroundColor: "red",
+                  border: "1px solid red",
+                  color: "white",
+                  marginTop: "30px",
+                  fontWeight: 800,
+                }}
+              >
+                See Your Favourite Design
+              </Button>
+            </div>
+          </div>
+          <div>
+            <Image src={carousal_banner_02} alt="banner_02" />
+          </div>
+          <div>
+            <Image src={carousal_banner_03} alt="banner_03" />
+          </div>
+        </Carousel>
+      </div>
+
+      <div>
+        <div>
+          {/* <Card
+            hoverable
+            style={{ width: 240 }}
+            cover={
+              <Image
+                alt="example"
+                src={carousal_banner_01}
+              />
+            }
           >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+            <p>Hello</p>
+            <p>Hello</p>
+          </Card> */}
         </div>
       </div>
-
-      <div className="relative flex place-items-center before:absolute before:h-[300px] before:w-[480px] before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-[240px] after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 before:lg:h-[360px] z-[-1]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className="mb-32 grid text-center lg:max-w-5xl lg:w-full lg:mb-0 lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Docs{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Learn{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Templates{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className={`mb-3 text-2xl font-semibold`}>
-            Deploy{' '}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className={`m-0 max-w-[30ch] text-sm opacity-50`}>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+      {/* Courusal */}
+    </div>
+  );
 }
