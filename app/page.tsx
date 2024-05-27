@@ -117,7 +117,7 @@ export default function Home() {
       {/* navigation bar */}
       {/* Courusal */}
       <div className="mt-20">
-        <Carousel arrows>
+        <Carousel arrows={true}>
           <div className="relative">
             <Image src={carousal_banner_01} alt="banner_01" />
             <div className="w-full absolute right-1/2 left-1/2 bottom-14 -translate-x-2/4 -translate-y-2/4">
@@ -153,28 +153,50 @@ export default function Home() {
         <p className="text-4xl font-bold text-balance text-center">
           One-stop shop for all things interiors
         </p>
-        <p
-          className=" mt-4 text-center text-xl font-normal text-balance"
-        > 
+        <p className=" mt-4 text-center text-xl font-normal text-balance">
           Be it end-to-end interiors, renovation or modular solutions, we have
           it all for your home or office. With a wide range of furniture &
           decor, we have your back from start to finish.
         </p>
       </div>
 
-      <div>
-        <div>
-          <Card
-            hoverable
-            style={{ width: 240 }}
-            cover={<Image alt="example" src={carousal_banner_01} />}
-          >
-            <p>Hello</p>
-            <p>Hello</p>
-          </Card>
+      <div className="px-9 mt-4">
+        {/* <Carousel> */}
+        <div className="flex gap-6">
+          <div>
+            <Card
+              hoverable
+              style={{ width: 240 }}
+              cover={<Image alt="example" src={carousal_banner_01} />}
+            >
+              <p className="text-center text-xl font-bold">Hello</p>
+              <p className="text-center text-base font-normal">Hello</p>
+              <p>Hello</p>
+            </Card>
+          </div>
+
+          <div>
+            <Card
+              hoverable
+              style={{ width: 240 }}
+              cover={<Image alt="example" src={carousal_banner_01} />}
+            >
+              <p>Hello</p>
+              <p>Hello</p>
+              <p>Hello</p>
+            </Card>
+
+            {/* daisui card */}
+          </div>
         </div>
+        {/* </Carousel> */}
       </div>
       {/* Courusal */}
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
     </div>
   );
 }
