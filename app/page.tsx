@@ -7,8 +7,8 @@ import carousal_banner_02 from "../assets/home_page/carousal_2_image.jpeg";
 import carousal_banner_03 from "../assets/home_page/carousal_3_image.jpg";
 // import carousal_banner_03 from "../assets/home_page/carousal_3_image.jpeg"
 
-// import { Card } from "antd";
-// const { Meta } = Card;
+import { Card } from "antd";
+const { Meta } = Card;
 export default function Home() {
   function ChevronDownIcon(props: any) {
     return (
@@ -149,21 +149,29 @@ export default function Home() {
         </Carousel>
       </div>
 
+      <div className="mt-5">
+        <p className="text-4xl font-bold text-balance text-center">
+          One-stop shop for all things interiors
+        </p>
+        <p
+          className=" mt-4 text-center text-xl font-normal text-balance"
+        > 
+          Be it end-to-end interiors, renovation or modular solutions, we have
+          it all for your home or office. With a wide range of furniture &
+          decor, we have your back from start to finish.
+        </p>
+      </div>
+
       <div>
         <div>
-          {/* <Card
+          <Card
             hoverable
             style={{ width: 240 }}
-            cover={
-              <Image
-                alt="example"
-                src={carousal_banner_01}
-              />
-            }
+            cover={<Image alt="example" src={carousal_banner_01} />}
           >
             <p>Hello</p>
             <p>Hello</p>
-          </Card> */}
+          </Card>
         </div>
       </div>
       {/* Courusal */}
