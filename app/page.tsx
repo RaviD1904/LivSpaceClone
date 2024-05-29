@@ -8,6 +8,7 @@ import carousal_banner_03 from "../assets/home_page/carousal_3_image.jpg";
 // import carousal_banner_03 from "../assets/home_page/carousal_3_image.jpeg"
 
 import { Card } from "antd";
+import BottomNavigation from "../components/BottomNavigation";
 const { Meta } = Card;
 export default function Home() {
   function ChevronDownIcon(props: any) {
@@ -197,6 +198,7 @@ export default function Home() {
       <br />
       <br />
       <br />
+      <BottomNavigation/>
     </div>
   );
 }
