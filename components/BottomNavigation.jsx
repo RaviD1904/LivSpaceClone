@@ -24,7 +24,7 @@ const BottomNavigation = () => {
          
         </Link>
        
-          <Link href="/design-ideas" className="flex flex-col items-center text-gray-500">
+          <Link href="/" className="flex flex-col items-center text-gray-500">
             <svg
               className="w-6 h-6"
               fill="none"
@@ -43,7 +43,7 @@ const BottomNavigation = () => {
          
         </Link>
        
-          <Link href="/lets-begin" className="flex flex-col items-center text-red-500">
+          <Link href="/" className="flex flex-col items-center text-red-500">
             <div className="bg-red-500 p-2 rounded-full">
               <svg
                 className="w-6 h-6 text-white"
@@ -64,7 +64,7 @@ const BottomNavigation = () => {
           </Link>
         
        
-          <Link href="/get-estimate" className="flex flex-col items-center text-gray-500">
+          <Link href="/" className="flex flex-col items-center text-gray-500">
             <svg
               className="w-6 h-6"
               fill="none"
@@ -83,7 +83,7 @@ const BottomNavigation = () => {
           </Link>
        
  
-          <Link href="/more" className="flex flex-col items-center text-gray-500">
+          <Link href="/" className="flex flex-col items-center text-gray-500">
             <svg
               className="w-6 h-6"
               fill="none"

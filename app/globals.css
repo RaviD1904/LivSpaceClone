@@ -2,3 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+.btm-nav > *:where(.active) {
+    /* border: 1px solid red; */
+    /* border: 1px solid red; */
+    /* border-radius: 90%; */
+    border: none;
+    color: red;
+    /* filter: invert(31%) sepia(85%) saturate(7456%) hue-rotate(354deg) brightness(100%) contrast(128%); */
+}
+
+.btm-nav > *:where(.active) > img {
+    /* color: blue; */
+    filter: invert(31%) sepia(85%) saturate(7456%) hue-rotate(354deg) brightness(100%) contrast(128%);
+}

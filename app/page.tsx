@@ -1,4 +1,7 @@
-import React from "react";
+"use client"
+
+import React, { Fragment, useState } from "react";
+
 import { Button, Carousel } from "antd";
 import Link from "next/link";
 import Image from "next/image";
@@ -11,6 +14,15 @@ import { Card } from "antd";
 import BottomNavigation from "../components/BottomNavigation";
 const { Meta } = Card;
 export default function Home() {
+  const [active, setActive] = useState("1");
+
+
+  const handleClick = (event:any) => {
+    setActive("")
+    setActive(event.target.id);
+    
+  }
+
   function ChevronDownIcon(props: any) {
     return (
       <svg
@@ -47,6 +59,13 @@ export default function Home() {
         <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z" />
       </svg>
     );
+  }
+
+
+  const activeStyle={
+    border: "1px solid red",
+    color:"red",
+    filter: "invert(18%) sepia(90%) saturate(4273%) hue-rotate(354deg) brightness(95%) contrast(123%)"
   }
 
   return (
@@ -198,7 +217,37 @@ export default function Home() {
       <br />
       <br />
       <br />
-      <BottomNavigation/>
+      <div className="btm-nav">
+        <Fragment>
+  <button  className={active === "1" ? "active" : "nonActive"} id={"1"} onClick={handleClick}>
+    <Image src="/home_icon.png" alt="home_icon" width={20} height={20}/>
+    <span className="text-xs">HOME</span>
+  </button>
+  <button  className={active === "2" ? "active" : "nonActive"} id={"2"} onClick={handleClick}>
+  <Image src="/design_icon.png" alt="design_icon" width={20} height={20}/>
+    <span className="text-xs">DESIGN IDEAS</span>
+  </button>
+  <button  className={active === "3" ? "active" : "nonActive"} id={"3"} onClick={handleClick}>
+  <Image src="/design_icon.png" alt="design_icon" width={20} height={20}/>
+    <span className="text-xs">LET'S BEGIN</span>
+  </button>
+  <button  className={active === "4" ? "active" : "nonActive"} id={"4"} onClick={handleClick}>
+  <Image src="/calcultor_icon.png" alt="calcultor_icon" width={20} height={20}/>
+    <span className="text-xs">GET ESTIMATE</span>
+  </button>
+  <button  className={active === "5" ? "active" : "nonActive"} id={"5"} onClick={handleClick}>
+  <Image src="/meu_icon.png" alt="menu_icon" width={20} height={20}/>
+    <span className="text-xs lg:text-base">MORE</span>
+  </button>
+  </Fragment>
+</div>
+      {/* <BottomNavigation/> */}
     </div>
   );
 }
+
+
+//active link code
+// border: 1px solid red;
+//     color: red;
+//     filter: invert(18%) sepia(90%) saturate(4273%) hue-rotate(354deg) brightness(95%) contrast(123%);
