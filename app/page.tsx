@@ -1,8 +1,8 @@
-"use client"
+"use client";
 
 import React, { Fragment, useState } from "react";
 
-import { Button, Carousel } from "antd";
+import { Button, Carousel, Drawer } from "antd";
 import Link from "next/link";
 import Image from "next/image";
 import carousal_banner_01 from "../assets/home_page/carousal_1_image.jpeg";
@@ -14,14 +14,25 @@ import { Card } from "antd";
 import BottomNavigation from "../components/BottomNavigation";
 const { Meta } = Card;
 export default function Home() {
-  const [active, setActive] = useState("1");
+  const [active, setActive] = useState<String>("1");
+  const [open, setOpen] = useState(false);
 
+  const showDrawer = () => {
+    setOpen(true);
+  };
 
-  const handleClick = (event:any) => {
-    setActive("")
-    setActive(event.target.id);
-    
-  }
+  const onClose = () => {
+    setOpen(false);
+  };
+
+  const handleClick = (id: String) => {
+    setActive("");
+    console.log(`id = ${id}`);
+    setActive(id);
+    if (id === "5") {
+      showDrawer();
+    }
+  };
 
   function ChevronDownIcon(props: any) {
     return (
@@ -61,12 +72,12 @@ export default function Home() {
     );
   }
 
-
-  const activeStyle={
+  const activeStyle = {
     border: "1px solid red",
-    color:"red",
-    filter: "invert(18%) sepia(90%) saturate(4273%) hue-rotate(354deg) brightness(95%) contrast(123%)"
-  }
+    color: "red",
+    filter:
+      "invert(18%) sepia(90%) saturate(4273%) hue-rotate(354deg) brightness(95%) contrast(123%)",
+  };
 
   return (
     <div className="overflow-x-hidden">
@@ -217,35 +228,85 @@ export default function Home() {
       <br />
       <br />
       <br />
-      <div className="btm-nav">
+      <div className="btm-nav md:hidden">
         <Fragment>
-  <button  className={active === "1" ? "active" : "nonActive"} id={"1"} onClick={handleClick}>
-    <Image src="/home_icon.png" alt="home_icon" width={20} height={20}/>
-    <span className="text-xs">HOME</span>
-  </button>
-  <button  className={active === "2" ? "active" : "nonActive"} id={"2"} onClick={handleClick}>
-  <Image src="/design_icon.png" alt="design_icon" width={20} height={20}/>
-    <span className="text-xs">DESIGN IDEAS</span>
-  </button>
-  <button  className={active === "3" ? "active" : "nonActive"} id={"3"} onClick={handleClick}>
-  <Image src="/design_icon.png" alt="design_icon" width={20} height={20}/>
-    <span className="text-xs">LET'S BEGIN</span>
-  </button>
-  <button  className={active === "4" ? "active" : "nonActive"} id={"4"} onClick={handleClick}>
-  <Image src="/calcultor_icon.png" alt="calcultor_icon" width={20} height={20}/>
-    <span className="text-xs">GET ESTIMATE</span>
-  </button>
-  <button  className={active === "5" ? "active" : "nonActive"} id={"5"} onClick={handleClick}>
-  <Image src="/meu_icon.png" alt="menu_icon" width={20} height={20}/>
-    <span className="text-xs lg:text-base">MORE</span>
-  </button>
-  </Fragment>
-</div>
+          <button
+            key={1}
+            className={active === "1" ? "active" : undefined}
+            id={"1"}
+            onClick={() => handleClick("1")}
+          >
+            <Image
+              src="/home_icon.png"
+              alt="home_icon"
+              width={20}
+              height={20}
+            />
+            <span className="text-xs">HOME</span>
+          </button>
+          <button
+            key={2}
+            className={active === "2" ? "active" : undefined}
+            id={"2"}
+            onClick={() => handleClick("2")}
+          >
+            <Image
+              src="/design_icon.png"
+              alt="design_icon"
+              width={20}
+              height={20}
+            />
+            <span className="text-xs">DESIGN IDEAS</span>
+          </button>
+          <button
+            key={3}
+            className={active === "3" ? "active" : undefined}
+            id={"3"}
+            onClick={() => handleClick("3")}
+          >
+            <Image
+              src="/design_icon.png"
+              alt="design_icon"
+              width={20}
+              height={20}
+            />
+            <span className="text-xs">LET'S BEGIN</span>
+          </button>
+          <button
+            key={4}
+            className={active === "4" ? "active" : undefined}
+            id={"4"}
+            onClick={() => handleClick("4")}
+          >
+            <Image
+              src="/calcultor_icon.png"
+              alt="calcultor_icon"
+              width={20}
+              height={20}
+            />
+            <span className="text-xs">GET ESTIMATE</span>
+          </button>
+          <button
+            key={5}
+            className={active === "5" ? "active" : undefined}
+            id={"5"}
+            onClick={() => handleClick("5")}
+          >
+            <Image src="/meu_icon.png" alt="menu_icon" width={20} height={20} />
+            <span className="text-xs lg:text-base">MORE</span>
+          </button>
+        </Fragment>
+      </div>
+
+      <Drawer title="Basic Drawer" onClose={onClose} open={open}>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+        <p>Some contents...</p>
+      </Drawer>
       {/* <BottomNavigation/> */}
     </div>
   );
 }
-
 
 //active link code
 // border: 1px solid red;
