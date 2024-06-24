@@ -1,17 +1,19 @@
-"use client";
+"use client"
 
 import React, { Fragment, useState } from "react";
 
 import { Button, Carousel, Drawer } from "antd";
+import { RightOutlined } from '@ant-design/icons';
 import Link from "next/link";
+import { MdOutlineArrowForwardIos } from "react-icons/md";
 import Image from "next/image";
 import carousal_banner_01 from "../assets/home_page/carousal_1_image.jpeg";
 import carousal_banner_02 from "../assets/home_page/carousal_2_image.jpeg";
-import carousal_banner_03 from "../assets/home_page/carousal_3_image.jpg";
+import carousal_banner_03 from "../assets/home_page/home-banner.jpg";
+import {HOME_PAGE_CARD_DATA} from "../utils/data"
 // import carousal_banner_03 from "../assets/home_page/carousal_3_image.jpeg"
 
 import { Card } from "antd";
-import BottomNavigation from "../components/BottomNavigation";
 const { Meta } = Card;
 export default function Home() {
   const [active, setActive] = useState<String>("1");
@@ -33,6 +35,12 @@ export default function Home() {
       showDrawer();
     }
   };
+
+
+
+
+
+
 
   function ChevronDownIcon(props: any) {
     return (
@@ -71,13 +79,6 @@ export default function Home() {
       </svg>
     );
   }
-
-  const activeStyle = {
-    border: "1px solid red",
-    color: "red",
-    filter:
-      "invert(18%) sepia(90%) saturate(4273%) hue-rotate(354deg) brightness(95%) contrast(123%)",
-  };
 
   return (
     <div className="overflow-x-hidden">
@@ -153,21 +154,22 @@ export default function Home() {
             <Image src={carousal_banner_01} alt="banner_01" />
             <div className="w-full absolute right-1/2 left-1/2 bottom-14 -translate-x-2/4 -translate-y-2/4">
               <h3 className="text-wrap text-center text-7xl text-white font-bold">
-                Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                Home to beautiful interiors
               </h3>
               <Button
                 className="absolute right-1/2 left-1/2 -translate-x-2/4 -translate-y-2/4"
-                shape="round"
+                shape="round" 
                 size="large"
                 style={{
-                  backgroundColor: "red",
-                  border: "1px solid red",
+                  backgroundColor: "#d94c50",
+                  border: "1px solid #d94c50",
                   color: "white",
                   marginTop: "30px",
-                  fontWeight: 800,
+                  padding:"10px 38px 38px 38px",
+                  fontWeight: 600,
                 }}
               >
-                See Your Favourite Design
+                BOOK FREE CONSULTATION
               </Button>
             </div>
           </div>
@@ -175,7 +177,7 @@ export default function Home() {
             <Image src={carousal_banner_02} alt="banner_02" />
           </div>
           <div>
-            <Image src={carousal_banner_03} alt="banner_03" />
+            <Image src={carousal_banner_02} alt="banner_03" />
           </div>
         </Carousel>
       </div>
@@ -191,34 +193,29 @@ export default function Home() {
         </p>
       </div>
 
-      <div className="px-9 mt-4">
+      <div className="px-7 py-5 mt-4 bg-slate-200">
         {/* <Carousel> */}
-        <div className="flex gap-6">
-          <div>
-            <Card
-              hoverable
-              style={{ width: 240 }}
-              cover={<Image alt="example" src={carousal_banner_01} />}
-            >
-              <p className="text-center text-xl font-bold">Hello</p>
-              <p className="text-center text-base font-normal">Hello</p>
-              <p>Hello</p>
-            </Card>
-          </div>
+        <div className="flex gap-3 sm:flex-wrap">
+        {/* <Carousel arrows={true}> */}
+          {
+          HOME_PAGE_CARD_DATA.map((item,index)=><div key={index}>
+          <Card
+            hoverable
+            style={{ width: 240,backgroundColor:"whitesmoke" }}
+            cover={<Image alt="example" src={carousal_banner_01} />}
+          >
+            <p className="text-center text-xl font-bold">{item.title}</p>
+            <p className="text-center text-base font-normal">{item.subtitle}</p>
+            <p className="text-center hover:text-red-400 mt-2">
 
-          <div>
-            <Card
-              hoverable
-              style={{ width: 240 }}
-              cover={<Image alt="example" src={carousal_banner_01} />}
-            >
-              <p>Hello</p>
-              <p>Hello</p>
-              <p>Hello</p>
-            </Card>
-
-            {/* daisui card */}
-          </div>
+            <RightOutlined className=""/>
+            </p>
+          </Card>
+        </div>)
+          
+          
+          }
+        {/* </Carousel> */}
         </div>
         {/* </Carousel> */}
       </div>
@@ -303,12 +300,8 @@ export default function Home() {
         <p>Some contents...</p>
         <p>Some contents...</p>
       </Drawer>
-      {/* <BottomNavigation/> */}
+      
     </div>
   );
 }
 
-//active link code
-// border: 1px solid red;
-//     color: red;
-//     filter: invert(18%) sepia(90%) saturate(4273%) hue-rotate(354deg) brightness(95%) contrast(123%);
